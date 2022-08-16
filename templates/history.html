@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+
+{% block main %}
+
+<h4>Transaction History</h4><br>
+
+<table style="width:100%" border = '2'>
+
+    <tr>
+        <th>Symble</th>
+        <th>Share</th>
+        <th>Price</th>
+        <th>Transaction Type</th>
+    </tr>
+    <tr style="border-bottom:1px solid black">
+        <td colspan="100%"></td>
+      </tr>
+
+    {% for user in users %}
+    <tr>
+        <th>{{user.stock}}</th>
+        <th>{{user.share}}</th>
+        <th>${{user.price |round(2, 'floor')}}</th>
+        <th>{{user.transaction_type}}</th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

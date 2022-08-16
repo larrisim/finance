@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+
+{% block main %}
+<h4> User: {{name}} </h4><br>
+
+<table style="width:100%">
+    <tr style="border-bottom:1px solid black">
+        <td colspan="100%"></td>
+      </tr>
+    <tr>
+        <th>Symble</th>
+        <th>Company</th>
+        <th>Share</th>
+        <th>Price</th>
+    </tr>
+    <tr style="border-bottom:1px solid black">
+        <td colspan="100%"></td>
+      </tr>
+
+    {% for user in users %}
+    <tr>
+        <th>{{user.stock}}</th>
+        <th>{{user.company}}</th>
+        <th>{{user.share}}</th>
+        <th>{{user.price|usd}}</th>
+    </tr>
+    {% endfor %}
+    <tr style="border-bottom:1px solid black">
+        <td colspan="100%"></td>
+      </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Sum</th>
+        <th>{{sum| usd}}</th>
+    </tr>
+
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Cash</th>
+        <th>{{cash|usd}}</th>
+    </tr>
+
+    <tr style="border-bottom:1px solid black">
+        <td colspan="100%"></td>
+      </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Total</th>
+        <th>{{ total | usd }}</th>
+    </tr>
+</table>
+
+{% endblock %}
